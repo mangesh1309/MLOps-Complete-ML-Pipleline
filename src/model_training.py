@@ -3,6 +3,7 @@ import os
 import pandas as pd, numpy as np
 import pickle
 from sklearn.ensemble import RandomForestClassifier
+import yaml
 
 dir_path = "logs"
 os.makedirs(dir_path, exist_ok=True)
@@ -22,6 +23,22 @@ file_handler.setFormatter(formatter)
 
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
+
+def load_params(file_path: str) -> dict:
+    """Load paramters dict from the params.yaml file"""
+    try:
+        with open(file_path, "r") as file:
+            params = yaml.safe_load(file)
+        logger.debug("Params loaded successfully from %s", file_path)
+        return params
+    except yaml.YAMLError as e:
+        logger.error("YAML error: %s", e)
+        raise
+    except FileNotFoundError as e:
+        logger.error("File not found: %s", file_path)
+        raise
+    except Exception as e:
+        logger.error("Unexpected error: %s", e)
 
 def load_data(file_path: str) -> pd.DataFrame:
     """
@@ -96,10 +113,13 @@ def save_model(model, file_path: str) -> None:
 
 def main():
     try:
-        params = {
-            "n_estimators": 25,
-            "random_state": 2
-        }
+        # params = {
+        #     "n_estimators": 25,
+        #     "random_state": 2
+        # }
+
+        params_file_path = "./params.yaml"
+        params = load_params(params_file_path)["model_training"]
 
         train_data = load_data('./data/processed/train_tfidf.csv')
         X_train = train_data.iloc[:, :-1].values
