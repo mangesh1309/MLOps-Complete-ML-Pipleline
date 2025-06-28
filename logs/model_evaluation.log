@@ -6,3 +6,12 @@
 2025-06-28 17:59:37,896 - model_evaluation - DEBUG - Data loaded from ./data/processed/test_tfidf.csv
 2025-06-28 17:59:37,932 - model_evaluation - DEBUG - Model evaluation metrics calculated
 2025-06-28 17:59:37,934 - model_evaluation - DEBUG - Metrics saved to reports/metrics.json
+2025-06-28 18:57:09,735 - model_evaluation - ERROR - File not found: ./params
+2025-06-28 18:57:09,736 - model_evaluation - ERROR - Failed to complete the model evaluation process: [Errno 2] No such file or directory: './params'
+2025-06-28 18:58:26,326 - model_evaluation - ERROR - File not found: ./params
+2025-06-28 18:58:26,327 - model_evaluation - ERROR - Failed to complete the model evaluation process: [Errno 2] No such file or directory: './params'
+2025-06-28 18:59:26,082 - model_evaluation - DEBUG - Params loaded successfully from ./params.yaml
+2025-06-28 18:59:26,241 - model_evaluation - DEBUG - Model loaded from ./models/model.pkl
+2025-06-28 18:59:26,252 - model_evaluation - DEBUG - Data loaded from ./data/processed/test_tfidf.csv
+2025-06-28 18:59:26,287 - model_evaluation - DEBUG - Model evaluation metrics calculated
+2025-06-28 18:59:27,141 - model_evaluation - DEBUG - Metrics saved to reports/metrics.json
