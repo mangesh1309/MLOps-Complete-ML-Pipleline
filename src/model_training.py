@@ -13,7 +13,7 @@ logger.setLevel("DEBUG")
 console_handler = logging.StreamHandler()
 console_handler.setLevel("DEBUG")
 
-logs_file_path = os.path.join(dir_path, "model_training.logs")
+logs_file_path = os.path.join(dir_path, "model_training.log")
 file_handler = logging.FileHandler(logs_file_path)
 
 formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
@@ -100,7 +100,7 @@ def main():
             "n_estimators": 25,
             "random_state": 2
         }
-        
+
         train_data = load_data('./data/processed/train_tfidf.csv')
         X_train = train_data.iloc[:, :-1].values
         y_train = train_data.iloc[:, -1].values
